@@ -17,8 +17,9 @@ module Slideshare
 
     include Connection
     include Request
-    include Api
     include Authentication
+    include Api
+    
     
     
   end
