@@ -1,6 +1,7 @@
 require 'slideshare/connection'
 require 'slideshare/request'
 require 'slideshare/api'
+require 'twitter/authentication'
 
 module Slideshare
   class Client
