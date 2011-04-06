@@ -1,5 +1,5 @@
 module Slideshare
-  module Connection
+  module Api
     
     def get_slideshow(options={})
       # http://www.slideshare.net/api/2/get_slideshow

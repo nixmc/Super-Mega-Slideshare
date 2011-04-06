@@ -1,4 +1,4 @@
-module Twitter
+module Slideshare
   # Defines HTTP request methods
   module Request
     # Perform an HTTP GET request

@@ -4,9 +4,11 @@ require 'slideshare/version'
 module Slideshare
   module Configuration
     VALID_OPTIONS_KEYS = [
+      :adapter,
       :version,
       :api_key,
       :api_secret,
+      :api_endpoint,
       :http_endpoint,
       :https_endpoint,
       :format,
@@ -15,9 +17,11 @@ module Slideshare
     
     VALID_FROMATS = [:xml].freeze
     
+    DEFAULT_ADAPTER = Faraday.default_adapter
     DEFAULT_VERSION = "2".freeze
     DEFAULT_API_KEY = nil
     DEFAULT_API_SECRET = nil
+    DEFAULT_API_ENDPOINT = "https://www.slideshare.net/api/".freeze
     DEFAULT_HTTP_ENDPOINT = "http://www.slideshare.net/api/".freeze
     DEFAULT_HTTPS_ENDPOINT = "https://www.slideshare.net/api/".freeze
     DEFAULT_FORMAT = :xml
@@ -44,6 +48,7 @@ module Slideshare
     
     # Reset all configuration options to defaults
     def reset
+      self.adapter        = DEFAULT_ADAPTER
       self.version        = DEFAULT_VERSION
       self.api_key        = DEFAULT_API_KEY
       self.api_secret     = DEFAULT_API_SECRET
