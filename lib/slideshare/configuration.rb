@@ -21,9 +21,7 @@ module Slideshare
     DEFAULT_VERSION = "2".freeze
     DEFAULT_API_KEY = nil
     DEFAULT_API_SECRET = nil
-    DEFAULT_API_ENDPOINT = "https://www.slideshare.net/api/".freeze
-    DEFAULT_HTTP_ENDPOINT = "http://www.slideshare.net/api/".freeze
-    DEFAULT_HTTPS_ENDPOINT = "https://www.slideshare.net/api/".freeze
+    DEFAULT_API_ENDPOINT = "https://www.slideshare.net/api/2/".freeze
     DEFAULT_FORMAT = :xml
     DEFAULT_USER_AGENT = "Slideshare Rub Gem #{Slideshare::VERSION}".freeze
     
@@ -52,8 +50,7 @@ module Slideshare
       self.version        = DEFAULT_VERSION
       self.api_key        = DEFAULT_API_KEY
       self.api_secret     = DEFAULT_API_SECRET
-      self.http_endpoint  = DEFAULT_HTTP_ENDPOINT
-      self.https_endpoint = DEFAULT_HTTPS_ENDPOINT
+      self.api_endpoint   = DEFAULT_API_ENDPOINT
       self.format         = DEFAULT_FORMAT
       self.user_agent     = DEFAULT_USER_AGENT
       self

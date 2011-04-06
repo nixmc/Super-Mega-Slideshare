@@ -3,6 +3,7 @@ module Slideshare
   module Request
     # Perform an HTTP GET request
     def get(path, options={}, raw=false)
+      puts options
       request(:get, path, options, raw)
     end
 
@@ -34,6 +35,7 @@ module Slideshare
           request.body = options unless options.empty?
         end
       end
+      puts response
       raw ? response : response.body
     end
 

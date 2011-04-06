@@ -17,7 +17,8 @@ module Slideshare
       }
 
       Faraday::Connection.new(options) do |connection|
-        connection.use Faraday::Request::Multipart, authentication
+        puts options
+        connection.use Faraday::Request::Multipart #, authentication
         #connection.use Faraday::Request::OAuth, authentication if authenticated?
         connection.adapter(adapter)
         connection.use Faraday::Response::RaiseHttp5xx
@@ -30,12 +31,6 @@ module Slideshare
         connection.use Faraday::Response::RaiseHttp4xx
         connection.use Faraday::Response::Mashify unless raw
       end
-    end
-    
-    def authenticate(options)
-      timestamp = Time.now.to_i
-      hash = Digest::SHA1.hexdigest(options[:api_secret] + @ts)
-      
     end
     
   end
