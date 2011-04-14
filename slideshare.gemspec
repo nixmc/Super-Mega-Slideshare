@@ -23,10 +23,10 @@ Gem::Specification.new do |s|
   s.post_install_message = "
   ****************************************************************
   Thank you for installing #{s.name}!
-  This is a work in progress, update soon for a more complete gem
   ****************************************************************
   "
   
   s.add_runtime_dependency('faraday', '~> 0.5.4')
   s.add_runtime_dependency('faraday_middleware', '~> 0.3.2')
+  s.add_runtime_dependency('nokogiri', '~> 1.4.4')
 end

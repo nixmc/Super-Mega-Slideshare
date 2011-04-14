@@ -3,7 +3,6 @@ module Slideshare
   module Request
     # Perform an HTTP GET request
     def get(path, options={}, raw=false)
-      puts options
       request(:get, path, options, raw)
     end
 
@@ -26,16 +25,16 @@ module Slideshare
 
     # Perform an HTTP request
     def request(method, path, options, raw=false)
+      options.merge!(authentication)
       response = connection(raw).send(method) do |request|
         case method
         when :get, :delete
-          request.url(formatted_path(path), options)
+          request.url(path, options)
         when :post, :put
-          request.path = formatted_path(path)
+          request.path = path
           request.body = options unless options.empty?
         end
       end
-      puts response
       raw ? response : response.body
     end
 

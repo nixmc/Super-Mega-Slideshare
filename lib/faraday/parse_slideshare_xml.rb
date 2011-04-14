@@ -1,4 +1,5 @@
 require 'faraday'
+require 'nokogiri'
 
 # @private
 module Faraday
@@ -10,14 +11,16 @@ module Faraday
       self.load_error = error
     end
     
-    def self.register_on_complete(env)      
+    def self.register_on_complete(env)
       # parse and raise either proper error or just return the response
       env[:response].on_complete do |response|
         response[:body] = begin
-          puts "hello there"
-          ::MultiXml.parser = :nokogiri
-          xml = ::MultiXml.parse(response[:body])
-          puts xml
+          error_id = nil
+          doc = Nokogiri::XML(response[:body])
+          doc.search('Message').each do |node|
+            raise Slideshare::SlideshareError, error_message(response, node['ID'].to_s + " " + node.text)
+          end
+          ::MultiXml.parse(response[:body])
         end
       end
     end
@@ -29,8 +32,8 @@ module Faraday
 
     private
 
-    def self.error_message(response)
-      "#{response[:method].to_s.upcase} #{response[:url].to_s}: #{response[:status]}#{error_body(response[:body])}"
+    def self.error_message(response, message)
+      "#{response[:method].to_s.upcase} #{response[:url].to_s}: #{response[:status]} #{message}"
     end
 
     def self.error_body(body)
