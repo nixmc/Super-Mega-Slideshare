@@ -1,6 +1,6 @@
-# Super Mega Slideshare=
+# Super Mega Slideshare
 
-A ruby wrapper for Slideshare
+A ruby wrapper for Slideshare.
 
 ## Example
 
@@ -12,7 +12,7 @@ A ruby wrapper for Slideshare
     end
 
     begin
-    	Slideshare.get_slideshow(:slideshow_url => "http://www.slideshare.net/lolcats/lolcatz-2-minute-break-1",    :detailed => 1)
+    	Slideshare.get_slideshow(:slideshow_url => "http://www.slideshare.net/lolcats/lolcatz-2-minute-break-1", :detailed => 1)
     rescue Slideshare::SlideshareError => e
     	puts e
     end
