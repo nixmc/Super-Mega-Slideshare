@@ -25,9 +25,9 @@ Gem::Specification.new do |s|
   Thank you for installing #{s.name}!
   ****************************************************************
   "
-  
+  s.add_runtime_dependency('hashie', '~> 1.0.0')
   s.add_runtime_dependency('faraday', '~> 0.5.4')
   s.add_runtime_dependency('faraday_middleware', '~> 0.3.2')
   s.add_runtime_dependency('nokogiri', '~> 1.4.4')
-  s.add_development_dependency('multi_xml', '~> 0.2')
+  s.add_runtime_dependency('multi_xml', '~> 0.2')
 end
