@@ -7,8 +7,8 @@ A ruby wrapper for Slideshare.
     require 'rubygems'
     require 'slideshare'
     Slideshare.configure do |config|
-    	config.api_key = "mlPF8lGR"
-    	config.api_secret = "4A8hs0pa"
+    	config.api_key = "XYZ123"
+    	config.api_secret = "123XYZ"
     end
 
     begin
